@@ -1,0 +1,45 @@
+{
+  "name": "picspark",
+  "version": "1.0.0",
+  "description": "AI驱动的产品设计截图管理与灵感发现平台",
+  "type": "module",
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:web": "turbo run dev --filter=web",
+    "dev:api": "turbo run dev --filter=api",
+    "build": "turbo run build",
+    "build:web": "turbo run build --filter=web",
+    "build:api": "turbo run build --filter=api",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "type-check": "turbo run type-check",
+    "clean": "turbo run clean",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "db:migrate": "turbo run db:migrate",
+    "db:generate": "turbo run db:generate",
+    "db:seed": "turbo run db:seed",
+    "db:studio": "turbo run db:studio"
+  },
+  "keywords": [
+    "design",
+    "ui",
+    "ux",
+    "inspiration",
+    "ai",
+    "screenshot",
+    "product-design"
+  ],
+  "author": "Tianyu199509",
+  "license": "MIT",
+  "packageManager": "pnpm@8.15.0",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "turbo": "^1.12.0",
+    "typescript": "^5.3.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
