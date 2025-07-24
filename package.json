@@ -1,45 +1,48 @@
 {
   "name": "picspark",
   "version": "1.0.0",
-  "description": "AI驱动的产品设计截图管理与灵感发现平台",
-  "type": "module",
+  "description": "AI驱动的产品截图管理和分析平台",
+  "main": "index.js",
   "scripts": {
-    "dev": "turbo run dev",
-    "dev:web": "turbo run dev --filter=web",
-    "dev:api": "turbo run dev --filter=api",
-    "build": "turbo run build",
-    "build:web": "turbo run build --filter=web",
-    "build:api": "turbo run build --filter=api",
-    "lint": "turbo run lint",
-    "lint:fix": "turbo run lint:fix",
-    "type-check": "turbo run type-check",
-    "clean": "turbo run clean",
-    "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose down",
-    "db:migrate": "turbo run db:migrate",
-    "db:generate": "turbo run db:generate",
-    "db:seed": "turbo run db:seed",
-    "db:studio": "turbo run db:studio"
+    "dev": "pnpm run dev:api & pnpm run dev:web",
+    "dev:api": "pnpm --filter api dev",
+    "dev:web": "pnpm --filter web dev",
+    "build": "pnpm run build:api && pnpm run build:web",
+    "build:api": "pnpm --filter api build",
+    "build:web": "pnpm --filter web build",
+    "start": "pnpm run start:api & pnpm run start:web",
+    "start:api": "pnpm --filter api start",
+    "start:web": "pnpm --filter web preview",
+    "install:all": "pnpm install",
+    "db:push": "pnpm --filter api db:push",
+    "db:migrate": "pnpm --filter api db:migrate",
+    "db:seed": "pnpm --filter api db:seed",
+    "db:studio": "pnpm --filter api db:studio",
+    "test": "pnpm run test:api && pnpm run test:web",
+    "test:api": "pnpm --filter api test",
+    "test:web": "pnpm --filter web test",
+    "lint": "pnpm run lint:api && pnpm run lint:web",
+    "lint:api": "pnpm --filter api lint",
+    "lint:web": "pnpm --filter web lint",
+    "format": "prettier --write ."
   },
   "keywords": [
-    "design",
-    "ui",
-    "ux",
-    "inspiration",
     "ai",
     "screenshot",
-    "product-design"
+    "product-analysis",
+    "image-management",
+    "vue",
+    "fastify",
+    "prisma"
   ],
-  "author": "Tianyu199509",
+  "author": "PicSpark Team",
   "license": "MIT",
-  "packageManager": "pnpm@8.15.0",
   "devDependencies": {
-    "@types/node": "^20.11.0",
-    "turbo": "^1.12.0",
-    "typescript": "^5.3.0"
+    "prettier": "^3.0.0"
   },
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "packageManager": "pnpm@8.15.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
 }
